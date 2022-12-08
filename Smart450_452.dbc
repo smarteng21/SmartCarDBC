@@ -1,0 +1,178 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: MEG ESP SAM KOMBI SRS
+VAL_TABLE_ ClutchStatus 8 "Transition" 4 "Closed" 2 "Open" ;
+VAL_TABLE_ Boolean 1 "True" 0 "False" ;
+VAL_TABLE_ ActualGear 0 "N" 1 "1" 2 "2" 3 "3" 4 "4" 5 "5" 6 "6" 7 "R" ;
+VAL_TABLE_ GearIndication 98 "ImmoGearboxFault" 104 "C" 100 "Cross" 62 "GearboxFault" 54 "BlankGearFault" 96 "Immo" 84 "Shift Down" 80 "Shift Up" 52 "Blank" 36 "6" 32 "5" 28 "4" 24 "3" 20 "2" 64 "0" 76 "A" 16 "1" 8 "N" 4 "R" ;
+VAL_TABLE_ ImmoStatusTable 254 "Prepare retry" 255 "End of process" 0 "New Request" ;
+VAL_TABLE_ RequestedGear 0 "N" 1 "1" 2 "2" 3 "3" 4 "4" 5 "5" 6 "6" 7 "R" ;
+VAL_TABLE_ CruiseControlMode 0 "Normal" 1 "Limit" ;
+VAL_TABLE_ ImmoRespStatus 254 "Prepare retry" 255 "End of process" 0 "New Request" ;
+VAL_TABLE_ ImmoReqStatus 254 "Prepare retry" 255 "End of process" 0 "New Request" ;
+VAL_TABLE_ SteeringSide 1 "Right" 0 "Left" ;
+VAL_TABLE_ ClutchStatus 8 "Transition" 4 "Closed" 2 "Open" ;
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ Byte1_Unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte2_Unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte4_Unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 85 SAM_Immo: 8 SAM
+ SG_ ImmoKey : 15|24@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ ImmoRespStatus : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1301 Kombi_02: 7 KOMBI
+ SG_ Odometer : 31|16@0+ (1,0) [0|0] "km"  SAM
+
+BO_ 568 SAM_03: 8 SAM
+ SG_ CruiseControl_Plus_Continue : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CruiseControl_Cancel : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CruiseControl_Minus_Set : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SAM03_FrameCounter : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 1585 SRS_01: 8 SRS
+
+BO_ 272 MEG_Immo: 8 MEG
+ SG_ ImmoSeed : 15|56@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ ImmoReqStatus : 7|8@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 570 Kombi_01: 8 KOMBI
+ SG_ IndicatedSpeed : 8|8@1+ (1,0) [0|0] "km/h" Vector__XXX
+
+BO_ 544 SAM_02: 8 SAM
+ SG_ StarterRequest : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DriverDoorClosed : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TurnIndicatorRight : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TurnIndicatorLeft : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ParkingLights : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PassengerDoorClosed : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HVAC_AC : 8|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HVAC_FanOn : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RearWindowDefrost : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SlidingSunroofRelay : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 520 SAM_01: 8 SAM
+ SG_ SAM01_FrameCounter : 0|8@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 194 ESP_03: 8 ESP
+ SG_ ESP03_Checksum : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ESP03_FrameCounter : 44|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SteeringSpeedSide : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SteeringAngleSpeed : 16|15@1- (0.043,0) [-704.512|704.469] "°/s" Vector__XXX
+ SG_ SteeringSide : 15|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ SteeringAngle : 0|15@1- (0.043,0) [0|0] "°" Vector__XXX
+
+BO_ 144 ESP_02: 8 ESP
+ SG_ BrakePedalPressed : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ESP02_FrameCounter : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 128 ESP_01: 8 ESP
+ SG_ FrontLeft : 7|16@0+ (0.5,0) [0|0] "RPM"  KOMBI
+ SG_ FrontRight : 23|16@0+ (0.5,0) [0|0] "RPM"  KOMBI
+ SG_ RearLeft : 39|16@0+ (0.5,0) [0|0] "RPM"  KOMBI
+ SG_ RearRight : 55|16@0+ (0.5,0) [0|0] "RPM"  KOMBI
+
+BO_ 400 MEG_01: 8 MEG
+ SG_ GearboxFault : 1|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ UnknownSAMRelay2 : 52|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ StarterRelayRequest : 51|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ FuelLevel : 24|9@0+ (-0.0702,33) [-2.8722|33] "L" Vector__XXX
+ SG_ RpmIndication : 16|8@1- (25,0) [0|6375] "RPM" Vector__XXX
+ SG_ OilPresssureLow : 15|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ CheckEngine : 14|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ RequestRadiatorFan : 10|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ BatteryFault : 9|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ RequestBeep : 8|1@1- (1,0) [0|0] "" Vector__XXX
+ SG_ GearIndication : 2|5@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ KL15Off : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Bits25_31_Unknown : 25|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte6_Unknown : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte7_Unknown : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CoolantTemperature : 40|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+
+BO_ 528 MEG_02: 8 MEG
+ SG_ Byte0_Unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte1_Unknown : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte2_Unknown : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ManifoldAirPressure : 24|8@1+ (0.01,-0.9) [0|0] "bar" Vector__XXX
+ SG_ Byte4_Unknown : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte5_Unknown : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte6_Unknown : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte7_Unknown : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CruiseControlMode : 43|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 768 MEG_03: 8 MEG
+ SG_ Byte0_Unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EngineSpeed : 8|16@1+ (1,0) [0|0] "RPM"  KOMBI
+ SG_ ActualGear : 24|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RequestedGear : 28|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ClutchStatus : 36|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte5_Unknown : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ReqToDrive : 48|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte7_Unknown : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 784 MEG_04: 8 MEG
+ SG_ Byte0_Unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte1_Unknown : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte2_Unknown : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Byte3_Unknown : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ThrottlePedalPosition : 39|16@0+ (0.008685,0) [0|100] "%" Vector__XXX
+ SG_ BrakePedalPressed : 54|1@1+ (1,0) [0|0] "" Vector__XXX
+
+
+
+CM_ BU_ MEG "Engine and gearbox signals";
+CM_ BU_ ESP "Brake, speed, steering angle, ESP data, etc.";
+CM_ BU_ SAM "Central electronics";
+CM_ BU_ KOMBI "Instrument cluster";
+CM_ BU_ SRS "Airbag";
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ BO_ 85 "Immobilizer key information (Response)";
+CM_ BO_ 272 "Immobilizer seed information (Request)";
+VAL_ 544 StarterRequest 1 "True" 0 "False" ;
+VAL_ 544 DriverDoorClosed 1 "True" 0 "False" ;
+VAL_ 544 PassengerDoorClosed 1 "True" 0 "False" ;
+VAL_ 144 BrakePedalPressed 1 "True" 0 "False" ;
+VAL_ 400 GearIndication 98 "ImmoGearboxFault" 104 "C" 100 "Cross" 62 "GearboxFault" 54 "BlankGearFault" 96 "Immo" 84 "Shift Down" 80 "Shift Up" 52 "Blank" 36 "6" 32 "5" 28 "4" 24 "3" 20 "2" 64 "0" 76 "A" 16 "1" 8 "N" 4 "R" ;
+VAL_ 400 KL15Off 1 "True" 0 "False" ;
+VAL_ 528 CruiseControlMode 0 "Normal" 1 "Limit" ;
+VAL_ 768 ActualGear 0 "N" 1 "1" 2 "2" 3 "3" 4 "4" 5 "5" 6 "6" 7 "R" ;
+VAL_ 768 RequestedGear 0 "N" 1 "1" 2 "2" 3 "3" 4 "4" 5 "5" 6 "6" 7 "R" ;
+VAL_ 768 ClutchStatus 8 "Transition" 4 "Closed" 2 "Open" ;
+VAL_ 784 BrakePedalPressed 1 "True" 0 "False" ;
+
